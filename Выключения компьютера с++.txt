@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <Windows.h>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	int a; 
+	int sec;
+
+	printf("Выберите команду:\n");
+	printf("1.Завершение работы \n");
+	printf("2.Сон \n");
+	printf("3.Перезагрузка \n");
+	printf("4.Выйти из системы \n");
+
+	cout <<"Номер команды:";
+	cin >> a;
+	cout << "Через сколько секунд? \n";
+	cin >> sec;
+
+	Sleep(1000 * sec);
+	
+	if (a==1)
+	{
+		system("shutdown -s");
+	}
+
+	if (a==2)
+	{
+		system("rundll32.exe powrprof.dll, SetSuspendState 0, 1, 0");
+	}
+
+	if (a==3)
+	{
+		system("shutdown -r -t 0");
+	}
+	if (a == 4)
+	{
+		system("shutdown -1");
+	}
+	return 0;
+}
